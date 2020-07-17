@@ -1,0 +1,17 @@
+.header {
+    .nav {
+        font-size: 14px;
+        margin-left: $margin-large;
+
+        .nav-item {
+            color: $blue;
+            padding: $padding-small;
+            cursor: pointer;
+            margin-right: $margin-large;
+
+            &.active {
+                color: $dark-blue
+            }
+        }
+    }
+}

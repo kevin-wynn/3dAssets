@@ -1,5 +1,6 @@
 import React from "react"
 import { useTable, useRowSelect } from "react-table"
+import Dinero from "dinero.js"
 
 const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref) => {
   const defaultRef = React.useRef()
@@ -16,17 +17,26 @@ const IndeterminateCheckbox = React.forwardRef(({ indeterminate, ...rest }, ref)
   )
 })
 
+const returnText = (color, value) => {
+  return <div className={`text ${color}`}>{value}</div>
+}
+
+const returnPill = (color, value) => {
+  return <div className={`pill ${color}`}>{value}</div>
+}
+
 const renderBalanceCell = ({ value }) => {
-  if (value > 0) {
-    return <div className="text green">{value}</div>
+  const number = Number(value.replace(/[^0-9.-]+/g, ""))
+  if (number > 0) {
+    return returnText("green", value)
   } else {
-    return <div className="text red">{value}</div>
+    return returnText("red", value)
   }
 }
 
 const renderInflowCell = ({ value }) => {
   if (value) {
-    return <div className="pill green">{value}</div>
+    return returnPill("green", value)
   } else {
     return <div></div>
   }
@@ -34,13 +44,27 @@ const renderInflowCell = ({ value }) => {
 
 const renderOutflowCell = ({ value }) => {
   if (value) {
-    return <div className="pill red">{value}</div>
+    return returnPill("red", value)
   } else {
     return <div></div>
   }
 }
 
 export function TransactionsTable({ columns_BAK, data_BAK }) {
+  const amounts = {
+    co: {
+      outflow: Dinero({ amount: -10000, currency: "USD" }),
+      balance: Dinero({ amount: 390170, currency: "USD" })
+    },
+    heb: {
+      outflow: Dinero({ amount: -11353, currency: "USD" }),
+      balance: Dinero({ amount: 400170, currency: "USD" })
+    },
+    salary: {
+      inflow: Dinero({ amount: -411523, currency: "USD" }),
+      balance: Dinero({ amount: 411523, currency: "USD" })
+    }
+  }
   const data = React.useMemo(
     () => [
       {
@@ -48,18 +72,18 @@ export function TransactionsTable({ columns_BAK, data_BAK }) {
         payee: "Capital One",
         category: "Capital One Quicksilver",
         memo: "",
-        outflow: 100.0,
+        outflow: amounts["co"].outflow.toFormat("$0,0.00"),
         inflow: "",
-        balance: -3901.7
+        balance: amounts["co"].balance.toFormat("$0,0.00")
       },
       {
         date: new Date().toLocaleDateString(),
         payee: "HEB",
         category: "Groceries",
         memo: "",
-        outflow: 113.53,
+        outflow: amounts["heb"].outflow.toFormat("$0,0.00"),
         inflow: "",
-        balance: 4001.7
+        balance: amounts["heb"].balance.toFormat("$0,0.00")
       },
       {
         date: new Date("7-1-2020").toLocaleDateString(),
@@ -67,8 +91,8 @@ export function TransactionsTable({ columns_BAK, data_BAK }) {
         category: "Salary",
         memo: "",
         outflow: "",
-        inflow: 4115.23,
-        balance: 4115.23
+        inflow: amounts["salary"].inflow.toFormat("$0,0.00"),
+        balance: amounts["salary"].balance.toFormat("$0,0.00")
       }
     ],
     []
@@ -146,28 +170,39 @@ export function TransactionsTable({ columns_BAK, data_BAK }) {
   )
 
   return (
-    <table cellSpacing="0" cellPadding="0" className="b-table" {...getTableProps()}>
-      <thead className="b-table-header">
-        {headerGroups.map((headerGroup) => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((column) => (
-              <th {...column.getHeaderProps()}>{column.render("Header")} </th>
-            ))}
-          </tr>
-        ))}
-      </thead>
-      <tbody className="b-table-body" {...getTableBodyProps()}>
-        {rows.map((row) => {
-          prepareRow(row)
-          return (
-            <tr className={row.isSelected ? "selected" : ""} {...row.getRowProps()}>
-              {row.cells.map((cell) => {
-                return <td {...cell.getCellProps()}>{cell.render("Cell")} </td>
-              })}
+    <div>
+      <h2 className="page-title">Transactions</h2>
+      <table
+        cellSpacing="0"
+        cellPadding="0"
+        className="b-table"
+        {...getTableProps()}
+      >
+        <thead className="b-table-header">
+          {headerGroups.map((headerGroup) => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map((column) => (
+                <th {...column.getHeaderProps()}>{column.render("Header")} </th>
+              ))}
             </tr>
-          )
-        })}
-      </tbody>
-    </table>
+          ))}
+        </thead>
+        <tbody className="b-table-body" {...getTableBodyProps()}>
+          {rows.map((row) => {
+            prepareRow(row)
+            return (
+              <tr
+                className={row.isSelected ? "selected" : ""}
+                {...row.getRowProps()}
+              >
+                {row.cells.map((cell) => {
+                  return <td {...cell.getCellProps()}>{cell.render("Cell")} </td>
+                })}
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
+    </div>
   )
 }

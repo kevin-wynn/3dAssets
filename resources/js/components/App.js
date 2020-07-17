@@ -1,12 +1,22 @@
-import React from "react"
+import React, { useState } from "react"
 import ReactDOM from "react-dom"
+import { Header } from "./Header"
 import { TransactionsTable } from "./Transactions"
+import { BudgetsTable } from "./Budgets"
 
 function App() {
+  const [viewTransactions, setViewTransactions] = useState(true)
+  const [viewBudgets, setViewBudgets] = useState(false)
   return (
     <div className="app">
-      <h1>Budgeteer</h1>
-      <TransactionsTable />
+      <Header
+        viewTransactions={viewTransactions}
+        setViewTransactions={setViewTransactions}
+        viewBudgets={viewBudgets}
+        setViewBudgets={setViewBudgets}
+      />
+      {viewTransactions && <TransactionsTable />}
+      {viewBudgets && <BudgetsTable />}
     </div>
   )
 }

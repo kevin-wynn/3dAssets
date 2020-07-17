@@ -104,6 +104,22 @@
   font-size: 14px;
 }
 
+.header .nav {
+  font-size: 14px;
+  margin-left: 12px;
+}
+
+.header .nav .nav-item {
+  color: #3490dc;
+  padding: 4px;
+  cursor: pointer;
+  margin-right: 12px;
+}
+
+.header .nav .nav-item.active {
+  color: #195b91;
+}
+
 * {
   font-family: "Nunito", sans-serif;
 }
