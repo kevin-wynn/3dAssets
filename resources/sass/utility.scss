@@ -1,0 +1,20 @@
+.text {
+    &.green {
+        color: $green;
+    }
+
+    &.red {
+        color: $red;
+    }
+}
+
+
+.pill {
+    &.green {
+        display: inline-flex;
+        background: $green;
+        color: $white;
+        padding: $padding-small $padding-medium;
+        border-radius: 15px;
+    }
+}

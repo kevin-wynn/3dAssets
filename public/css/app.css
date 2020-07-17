@@ -1,4 +1,110 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);* {
+@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+
+.text.green {
+  color: #38c172;
+}
+
+.text.red {
+  color: #e3342f;
+}
+
+.pill.green {
+  display: inline-flex;
+  background: #38c172;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 15px;
+}
+
+.b-table {
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.b-table .checkbox input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 1px solid #666666;
+  padding: 8px;
+  border-radius: 5px;
+  display: inline-block;
+  position: relative;
+  background: #ffffff;
+}
+
+.b-table .checkbox input:focus {
+  outline: 0;
+}
+
+.b-table .checkbox input:checked {
+  border: 1px solid #3490dc;
+  background: #3490dc;
+  color: #ffffff;
+}
+
+.b-table .checkbox input:checked:after {
+  content: "\2714";
+  font-size: 10px;
+  position: absolute;
+  left: 4px;
+  top: 2px;
+  color: #ffffff;
+}
+
+.b-table .b-table-header {
+  background: #e2effa;
+  border-radius: 5px;
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.b-table .b-table-header tr {
+  display: flex;
+  flex-direction: row;
+}
+
+.b-table .b-table-header tr th {
+  min-width: 150px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  color: #666666;
+  padding: 8px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.b-table .b-table-header tr th .checkbox {
+  padding: 8px;
+}
+
+.b-table .b-table-body {
+  width: 100%;
+}
+
+.b-table .b-table-body tr {
+  display: flex;
+  padding: 4px;
+  align-items: center;
+}
+
+.b-table .b-table-body tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+.b-table .b-table-body tr.selected {
+  background: #f8fbfe;
+}
+
+.b-table .b-table-body tr td {
+  padding: 8px;
+  min-width: 150px;
+  font-size: 14px;
+}
+
+* {
   font-family: "Nunito", sans-serif;
 }
 

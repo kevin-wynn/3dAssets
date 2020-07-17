@@ -4,6 +4,12 @@
 // Variables
 @import "variables";
 
+// Utility
+@import "utility";
+
+// Styles
+@import "table";
+
 * {
-  font-family: $font-family-sans-serif;
+    font-family: $font-family-sans-serif;
 }

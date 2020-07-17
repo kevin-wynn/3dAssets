@@ -17,3 +17,23 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+
+// Custom Colors
+$grey: #666666;
+$white: #ffffff;
+
+// Custom Light Colors
+$light-blue: lighten($blue, 40%);
+$lightest-blue: lighten($blue, 45%);
+$light-grey: lighten($grey, 55%);
+
+// Padding
+$padding-small: 4px;
+$padding-medium: 8px;
+$padding-high: 12px;
+
+// Margin
+$margin-medium: 8px;
+
+// Styles
+$border-radius: 5px;
