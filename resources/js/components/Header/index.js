@@ -18,7 +18,7 @@ export function Header({
   return (
     <div className="header">
       <h1>
-        Budgeteer
+        Budgateer
         <span className="nav">
           <a
             onClick={changeViewTransactions}

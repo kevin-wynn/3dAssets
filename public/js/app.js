@@ -34666,7 +34666,7 @@ function Header(_ref) {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "header"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Budgeteer", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Budgateer", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "nav"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     onClick: changeViewTransactions,
@@ -34727,19 +34727,19 @@ var IndeterminateCheckbox = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___defa
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
     type: "checkbox",
     ref: resolvedRef
-  }, rest)));
+  }, rest)), " ");
 });
 
 var returnText = function returnText(color, value) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "text ".concat(color)
-  }, value);
+  }, " ", value, " ");
 };
 
 var returnPill = function returnPill(color, value) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "pill ".concat(color)
-  }, value);
+  }, " ", value, " ");
 };
 
 var renderBalanceCell = function renderBalanceCell(_ref2) {
@@ -34759,7 +34759,7 @@ var renderInflowCell = function renderInflowCell(_ref3) {
   if (value) {
     return returnPill("green", value);
   } else {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " ");
   }
 };
 
@@ -34769,7 +34769,7 @@ var renderOutflowCell = function renderOutflowCell(_ref4) {
   if (value) {
     return returnPill("red", value);
   } else {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " ");
   }
 };
 
@@ -34808,12 +34808,12 @@ function TransactionsTable(_ref5) {
       })
     }
   };
-  var data = react__WEBPACK_IMPORTED_MODULE_0___default.a.useMemo(function () {
+  var data = react__WEBPACK_IMPORTED_MODULE_0___default.a.usenotes(function () {
     return [{
       date: new Date().toLocaleDateString(),
       payee: "Capital One",
       category: "Capital One Quicksilver",
-      memo: "",
+      notes: "",
       outflow: amounts["co"].outflow.toFormat("$0,0.00"),
       inflow: "",
       balance: amounts["co"].balance.toFormat("$0,0.00")
@@ -34821,7 +34821,7 @@ function TransactionsTable(_ref5) {
       date: new Date().toLocaleDateString(),
       payee: "HEB",
       category: "Groceries",
-      memo: "",
+      notes: "",
       outflow: amounts["heb"].outflow.toFormat("$0,0.00"),
       inflow: "",
       balance: amounts["heb"].balance.toFormat("$0,0.00")
@@ -34829,13 +34829,13 @@ function TransactionsTable(_ref5) {
       date: new Date("7-1-2020").toLocaleDateString(),
       payee: "Us",
       category: "Salary",
-      memo: "",
+      notes: "",
       outflow: "",
       inflow: amounts["salary"].inflow.toFormat("$0,0.00"),
       balance: amounts["salary"].balance.toFormat("$0,0.00")
     }];
   }, []);
-  var columns = react__WEBPACK_IMPORTED_MODULE_0___default.a.useMemo(function () {
+  var columns = react__WEBPACK_IMPORTED_MODULE_0___default.a.usenotes(function () {
     return [{
       Header: "Date",
       accessor: "date"
@@ -34846,8 +34846,8 @@ function TransactionsTable(_ref5) {
       Header: "Category",
       accessor: "category"
     }, {
-      Header: "Memo",
-      accessor: "memo"
+      Header: "notes",
+      accessor: "notes"
     }, {
       Header: "Outflow",
       accessor: "outflow",
@@ -34874,13 +34874,13 @@ function TransactionsTable(_ref5) {
           var getToggleAllRowsSelectedProps = _ref6.getToggleAllRowsSelectedProps;
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "checkbox"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(IndeterminateCheckbox, getToggleAllRowsSelectedProps()));
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(IndeterminateCheckbox, getToggleAllRowsSelectedProps()), " ");
         },
         Cell: function Cell(_ref7) {
           var row = _ref7.row;
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "checkbox"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(IndeterminateCheckbox, row.getToggleRowSelectedProps()));
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(IndeterminateCheckbox, row.getToggleRowSelectedProps()), " ");
         }
       }].concat(_toConsumableArray(columns));
     });
@@ -34895,26 +34895,26 @@ function TransactionsTable(_ref5) {
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
     className: "page-title"
-  }, "Transactions"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", _extends({
+  }, " Transactions "), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", _extends({
     cellSpacing: "0",
     cellPadding: "0",
     className: "b-table"
   }, getTableProps()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", {
     className: "b-table-header"
-  }, headerGroups.map(function (headerGroup) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", headerGroup.getHeaderGroupProps(), headerGroup.headers.map(function (column) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", column.getHeaderProps(), column.render("Header"), " ");
-    }));
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", _extends({
+  }, " ", headerGroups.map(function (headerGroup) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", headerGroup.getHeaderGroupProps(), " ", headerGroup.headers.map(function (column) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", column.getHeaderProps(), " ", column.render("Header"), " ");
+    }), " ");
+  }), " "), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", _extends({
     className: "b-table-body"
-  }, getTableBodyProps()), rows.map(function (row) {
+  }, getTableBodyProps()), " ", rows.map(function (row) {
     prepareRow(row);
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", _extends({
       className: row.isSelected ? "selected" : ""
     }, row.getRowProps()), row.cells.map(function (cell) {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", cell.getCellProps(), cell.render("Cell"), " ");
-    }));
-  }))));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", cell.getCellProps(), " ", cell.render("Cell"), " ");
+    }), " ");
+  }), " "), " "), " ");
 }
 
 /***/ }),
@@ -34937,8 +34937,8 @@ function TransactionsTable(_ref5) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/kevinwynn/Sites/budgeteer/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/kevinwynn/Sites/budgeteer/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/kevinwynn/Sites/budgateer/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/kevinwynn/Sites/budgateer/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
